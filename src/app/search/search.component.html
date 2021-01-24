@@ -1,0 +1,27 @@
+<div class="example-container">
+    <mat-form-field appearance="fill" [formGroup]="searchForm" name="search_form">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup.enter)="onEnterSearch($event.target.value)" [(ngModel)]="searchText"
+            formControlName="search" name="search">
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)="onEnterSearch(searchText)">Go</button>
+    <br>
+    <br>
+</div>
+<div class="gallery">
+    <div class="main-box" *ngFor="let char of starWarsChar">
+        <div class="example-box" cdkDrag>
+            <div class="preloader" *ngIf="preloader">
+                <div class="row spinerLoader">
+                    <div class="col-sm-12">
+                        <div class="sp sp-circle"></div>
+                    </div>
+                </div>
+            </div>
+            {{char.name}}<br><br>
+            {{char.height}}<br><br>
+            {{char.planet}}
+
+        </div>
+    </div>
+</div>
